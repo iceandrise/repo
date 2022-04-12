@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BountyDo</title>
+</head>
+
+<body>
+
+  <header>
+
+      <div class="wrapper__logo">
+          <small class="bounty">BountyDo</small>
+      </div>
+      <div class = "wrapper__auth">
+        <a class = "auth_buttons" href="logout.html">
+          <button class="button">Log Out</button>
+        </a>
+        <a class = "auth_buttons" href="index.html">
+          <button class="button">Account</button>
+        </a>
+      </div>
+
+
+  </header>
+
+  <div class="main"> 
+    <div class="main__wrapper"> 
+      <div class="counter__container"> 
+        <div class="counter"> 
+          <h2 class="counter__title">Counter</h2> 
+          <div class="wrapper">
+            <div class="wrapper__counter">
+              <p class="wrapper__counter_completed">Completed tasks:</p>
+              <div class="output__field"></div>
+            </div>
+            <div class="wrapper__counter">
+              <p class="wrapper__counter_remaining">Remaining tasks:</p>
+              <div class="output__field"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter__container">
+        <div class="filter">
+          <h2 class="filter__title">Search</h2>
+          <div class="wrapper">
+            <div class="wrapper__filter">
+              <input type="text" class="input" name="input__filter" />
+              <button class="button">Search</button>
+            </div>
+            <h2 class="tagfilter__title">Tag filter</h2>
+            <div class="wrapper__filter">
+              <label class="radio__wrapper">
+                <input type="radio" name="work" />
+                Work
+              </label>
+
+              <label class="radio__wrapper">
+                <input type="radio" name="rest" />
+                Rest
+              </label>
+              <label class="radio__wrapper">
+                <input type="radio" name="family" />
+                Family
+              </label>
+
+              <label class="radio__wrapper">
+                <input type="radio" name="shopping" />
+                Shopping
+              </label>
+              <label class="radio__wrapper">
+                <input type="radio" name="celebration" />
+                Celebration
+              </label>
+
+              <label class="radio__wrapper">
+                <input type="radio" name="help" />
+                Help
+              </label>
+            </div>
+
+            <div class="wrapper__buttons">
+              <button class="button">Clear</button>
+              <button class="button">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="collection__container">
+        <div class="collection">
+          <h2 class="collect__title">Collection</h2>
+          <div class="wrapper">
+            <div class="wrapper__collect">
+              <p class="wrapper__output_count">Count of your pets:</p>
+              <div class="output__field"></div>
+            </div>
+            <div class="wrapper__collect">
+              <ul class="pets__form">
+                <li class="pets__wrapper">
+                  <a href="" class="pets"></a>
+                </li>
+                <li class="pets__wrapper">
+                  <a href="" class="pets"></a>
+                </li>
+                <li class="pets__wrapper">
+                  <a href="" class="pets"></a>
+                </li>
+                <li class="pets__wrapper">
+                  <a href="" class="pets"></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="general__task__wrapper">
+      <div class="container__task">
+        <form action = "index.html">
+        <div class="task">
+          <h2 class="create_task__title">Create task</h2>
+          <div class="general1__wrapper">
+            <div class="create__task">
+              <div class="create__task__wrapper">
+                <input type="name" placeholder="Enter name" name="name" id = "name" required>
+
+                <div class="wrapper__filter">
+                  <label class="radio__wrapper">
+                    <input type="radio" name="work" id="radio__create" />
+                    Work
+                  </label>
+
+                  <label class="radio__wrapper">
+                    <input type="radio" name="rest" id="radio__create" />
+                    Rest
+                  </label>
+                  <label class="radio__wrapper">
+                    <input type="radio" name="family" id="radio__create" />
+                    Family
+                  </label>
+
+                  <label class="radio__wrapper">
+                    <input type="radio" name="shopping" id="radio__create"/>
+                    Shopping
+                  </label>
+                  <label class="radio__wrapper">
+                    <input type="radio" name="celebration" id="radio__create" />
+                    Celebration
+                  </label>
+
+                  <label class="radio__wrapper">
+                    <input type="radio" name="help" id="radio__create" />
+                    Help
+                  </label>
+                </div>
+                <div class="description__task">
+                  <textarea type="description" placeholder="Enter description" name="dscr" id= "dscr" required></textarea>
+                </div>
+              </div>
+              <div class="time__task">
+
+                <label class="wrapper__time">Time</label>
+                <input type="time" name="cron" id="cron1" value="03:15" min="00:01" max="06:00">
+                <input type="time" name="cron" id="cron2" value="03:15" min="00:01" max="06:00">
+                <button class="button" id="button__create">Create</button>
+              </div>
+            </form>
+            </div>
+          </div>
+
+
+          <h2 class="create_task__title">Priority tasks</h2>
+          <div class="new__task__wrapper">
+          <div class="general__wrapper">
+           <div class="create__task">
+             <!-- <div class="create__task__style">
+                <input type="name" placeholder="Enter name" name="name" value="Buy food for saturday" required>
+
+                <div class="wrapper__filter">
+                  <label class="radio__wrapper">
+                    <input type="radio" name="rest2" checked />
+                    Rest
+                  </label>
+                </div>
+                <div class="description__task">
+                  <textarea type="description" placeholder="Shop closes at 11pm..." name="dscr" required></textarea>
+                </div>
+              </div>
+              <div class="time__task">
+                <input type="image" src="img/staract.png" width="45px" height="45px">
+                <label class="wrapper__time">Time</label>
+                <input type="time" name="cron" value="17:30" min="00:01" max="06:00">
+                <input type="time" name="cron" value="18:00" min="00:01" max="06:00">
+
+              </div>
+
+            </div>
+            <div class="button__column">
+              <button class="button">Update</button>
+              <button class="button">Comlete!</button>
+              <button class="button">Delete</button>
+            </div> -->
+          </div> 
+        </div>
+
+          <h2 class="create_task__title">Tasks</h2>
+          <div class="new__task__wrapper">
+         <div class="general__wrapper">
+            <div class="create__task">
+            <!--  <div class="create__task__style">
+                <input type="name" placeholder="Enter name" name="name" value="Water the neighbors' flowers" required>
+
+                <div class="wrapper__filter">
+                  <label class="radio__wrapper">
+                    <input type="radio" name="help2" checked />
+                    Help
+                  </label>
+                </div>
+                <div class="description__task">
+                  <textarea type="description" placeholder="Keys under the mat" name="dscr" required></textarea>
+                </div>
+              </div>
+              <div class="time__task">
+                <input type="image" src="img/starnon.png" width="45px" height="45px">
+                <label class="wrapper__time">Time</label>
+                <input type="time" name="cron" value="20:00" min="00:01" max="06:00">
+                <input type="time" name="cron" value="20:10" min="00:01" max="06:00">
+
+              </div>
+
+            </div>
+            <div class="button__column">
+              <button class="button">Update</button>
+              <button class="button">Comlete!</button>
+              <button class="button">Delete</button>
+            </div> -->
+          </div> 
+        </div>
+
+
+
+        </div> 
+      </div>
+    </div>
+  </div>
+
+  <script src ="js/index.js"></script>
+
+</body>
+
+</html>

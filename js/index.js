@@ -1,16 +1,16 @@
-const addTaskBtn = document.getElementById('button__create')
+const addTaskBtn = document.getElementById('button-create')
 const nameTask = document.getElementById('name')
 const descrTask = document.getElementById('dscr')
 const radioTask = document.getElementById('radio__create')
 const timeTask1 = document.getElementById('cron1')
 const timeTask2 = document.getElementById('cron2')
-const wrapperTask = document.querySelector('.general__wrapper')
+const wrapperTask = document.querySelector('.general-wrapper')
 
 let tasks;
 let todoEl = [];
 !localStorage.tasks ? tasks = [] : tasks = JSON.parse(localStorage.getItem('tasks'));
 
-function Task(nameofTask, description, radio, time1, time2){
+function Task(nameofTask, description, radio, time1, time2) {
     this.nameofTask = nameofTask;
     this.description = description;
     this.radio = radio;
@@ -20,45 +20,34 @@ function Task(nameofTask, description, radio, time1, time2){
 }
 
 
-const createTemplate = (task, index) =>{
+const createTemplate = (task, index) => {
     let count = 0;
-    
+
     return `
-        <div class="create__task ${task.completed ? 'image__class' : ''}"> 
+        <div class="task-content ${task.completed ? 'image__class' : ''}"> 
         <div class="create__task__style ">
       <input type="name" placeholder="Enter name" name="name" value = ${task.description} required>
 
       <div class="wrapper__filter">
       <label class="radio__wrapper">
-          <input type="radio" name="work2 ${task.radio}"/>
-          Work
-        </label>
-        <label class="radio__wrapper">
-          <input type="radio" name="rest2"/>
-          Rest
-        </label>
-        <label class="radio__wrapper">
-          <input type="radio" name="family2"/>
-          Family
-        </label>
-        <label class="radio__wrapper">
-          <input type="radio" name="shopping2"/>
-          Shopping
-        </label>
-        <label class="radio__wrapper">
-          <input type="radio" name="celebration2"/>
-          Celebration
-        </label>
-        <label class="radio__wrapper">
-          <input type="radio" name="Help2"/>
-          Help
-        </label>
+         
+          <input type="radio" id="work" ${task.radio} /> <label for="work">Work</label>
+
+          <input type="radio" id="rest" /> <label for="rest">Rest</label>
+
+          <input type="radio" id="shopping" /> <label for="shopping">Shopping</label>
+
+          <input type="radio" id="family" /> <label for="family">Family</label>
+
+          <input type="radio" id="celebration" /> <label for="celebration">Celebration</label>
+
+          <input type="radio" id="help" /> <label for="help">Help</label>
       </div>
-      <div class="description__task">
+      <div class="task__description">
         <textarea type="description" placeholder="Enter description" name="dscr" required>${task.nameofTask}</textarea>
       </div>
     </div>
-    <div class="time__task">
+    <div class="task__time">
       <img id ="image" onclick ="completeTask(${index})" onclick = "imagesrc()" class = "image__class" src="img/starnon.png" width="45px" height="45px ">
       <script language="javascript"> 
         var i=0; 
@@ -86,13 +75,13 @@ const createTemplate = (task, index) =>{
 }
 
 
-const fillHtml = () =>{
-    wrapperTask.innerHTML = "" ;
-    if(tasks.length > 0){
+const fillHtml = () => {
+    wrapperTask.innerHTML = "";
+    if (tasks.length > 0) {
         tasks.forEach((item, index) => {
             wrapperTask.innerHTML += createTemplate(item, index);
         });
-        todoEl = document.querySelectorAll('.create__task')
+        todoEl = document.querySelectorAll('.task-content')
     }
 }
 
@@ -102,18 +91,18 @@ const updateLocal = () => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-const completeTask = index =>{
+const completeTask = index => {
     tasks[index].completed = !tasks[index].completed;
-    if(tasks[index].completed){
+    if (tasks[index].completed) {
         todoEl[index].classList.add('image__class')
-    }else{
+    } else {
         todoEl[index].classList.remove('image__class')
     }
     updateLocal();
     fillHtml();
 }
 
-addTaskBtn.addEventListener('click', ()=>{
+addTaskBtn.addEventListener('click', () => {
     tasks.push(new Task(descrTask.value, nameTask.value, radioTask.value, timeTask1.value, timeTask2.value));
     updateLocal();
     fillHtml();
